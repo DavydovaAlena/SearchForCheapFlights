@@ -22,3 +22,9 @@ dependencyResolutionManagement {
 rootProject.name = "SearchForCheapFlights"
 include(":app")
 include(":remote")
+include(":ui-component")
+include(":feature:main-screen")
+include(":searchflights-data")
+include(":navigation")
+include(":feature:search-feature")
+include(":feature:selectcountry-feature")

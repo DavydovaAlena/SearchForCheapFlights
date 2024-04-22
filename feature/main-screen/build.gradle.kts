@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id ("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -14,6 +16,10 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+
+    buildFeatures {
+        viewBinding = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -37,7 +43,18 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation (libs.androidx.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.core)
+    implementation(libs.hilt.android)
+    implementation (libs.androidx.datastore.preferences)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    kapt(libs.hilt.compiler)
+    implementation ("com.hannesdorfmann:adapterdelegates4:4.3.2")
+    implementation ("com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2")
+    implementation(project(":searchflights-data"))
+    implementation(project(":ui-component"))
 }

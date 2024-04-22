@@ -1,16 +1,18 @@
 package ru.adavydova.remote.models
 
+import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonNames
 
-@Serializable
-data class OfferDto(
-    @SerialName("id")
-    val id: Long,
-    @SerialName("title")
+data class OfferDto (
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("title")
     val title: String,
-    @SerialName("town")
+    @SerializedName("town")
     val town: String,
-    @SerialName("price")
+    @SerializedName("price")
     val price: PriceDto
 )

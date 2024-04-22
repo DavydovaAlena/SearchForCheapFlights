@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id ("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -45,4 +47,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation (libs.androidx.navigation.ui.ktx)
+    implementation (libs.androidx.hilt.navigation.fragment)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.converter.scalars)
+    implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp3.loggin.interceptor)
+    implementation(libs.converter.gson)
+    implementation(libs.retrofit.adapters.result)
+    implementation(project(":navigation"))
+    implementation(project(":searchflights-data"))
+    implementation(project(":remote"))
 }

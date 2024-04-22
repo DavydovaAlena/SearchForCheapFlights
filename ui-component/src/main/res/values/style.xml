@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="musical_fly_away_picture_style_circular">
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="popular_destination_style_circular">
+        <item name="cornerSize">8dp</item>
+    </style>
+</resources>

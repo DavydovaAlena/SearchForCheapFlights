@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/picture"
+        android:background="@color/basic_gray6"
+        app:shapeAppearanceOverlay="@style/musical_fly_away_picture_style_circular"
+        android:layout_width="132dp"
+        android:layout_height="132dp"/>
+
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/basic_white"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        tools:text="Dia Antwoord"/>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/basic_white"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:textSize="14sp"
+            android:text="Будапешт"/>
+
+        <LinearLayout
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_plan_for_musical_flay_away"/>
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:textSize="14sp"
+                android:textColor="@color/basic_white"
+                tools:text="от 22 264 Р"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

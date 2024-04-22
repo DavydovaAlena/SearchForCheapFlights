@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="122dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="16dp"
+        android:backgroundTint="@color/basic_gray3">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_with_shadow"
+            android:backgroundTint="@color/basic_gray4"
+            app:cardCornerRadius="16dp"
+            android:layout_margin="16dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:contentDescription="icon_search"
+                    android:paddingLeft="12dp"
+                    android:src="@drawable/icon_search" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:padding="12dp"
+                    android:orientation="vertical"
+                    android:id= "@+id/from_the_country_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/from_the_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:fontFamily="@font/sf_pro_display_semibold"
+                        android:lines="1"
+                        android:textSize="16sp"
+                        android:background="@android:color/transparent"
+                        android:hint="Откуда - Москва"
+                        android:textColorHint="@color/basic_gray6"
+                        android:textColor="@color/basic_white"
+                        app:layout_constraintBottom_toTopOf="@id/icon_position"
+                        app:layout_constraintTop_toTopOf="@id/from_the_country_container"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:layout_editor_absoluteX="8dp" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="?android:attr/listDivider"
+                        android:backgroundTint="@color/basic_gray6"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:layout_editor_absoluteX="12dp" />
+
+                    <ImageView
+                        android:id="@+id/icon_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_position"
+                        app:layout_constraintBottom_toBottomOf="@id/from_the_country_container"
+                        app:layout_constraintEnd_toStartOf="@id/divider"
+                        app:layout_constraintStart_toEndOf="@id/divider"
+                        app:layout_constraintTop_toTopOf="@id/from_the_country_container" />
+
+
+                    <EditText
+                        android:id="@+id/to_the_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:hint="Куда - Турция"
+                        android:textColorHint="@color/basic_gray6"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/sf_pro_display_semibold"
+                        android:textSize="16sp"
+                        android:textColor="@color/basic_white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/icon_position"
+                        tools:layout_editor_absoluteX="12dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

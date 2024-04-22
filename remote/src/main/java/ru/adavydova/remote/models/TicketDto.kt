@@ -1,22 +1,23 @@
 package ru.adavydova.remote.models
 
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class TicketDto (
-    @SerialName("id")val id: Long,
-    @SerialName("badge")val badge: String,
-    @SerialName("price")val price: PriceDto,
-    @SerialName("provider_name")val providerName: String,
-    @SerialName("company")val company:String,
-    @SerialName("departure")val departure: DestinationDto,
-    @SerialName("arrival")val arrival: DestinationDto,
-    @SerialName("has_transfer")val hasTransfer: Boolean,
-    @SerialName("has_visa_transfer")val hasVisaTransfer: Boolean,
-    @SerialName("luggage")val luggage: LuggageDto,
-    @SerialName("hand_luggage")val handLuggageDto: HandLuggageDto,
-    @SerialName("is_returnable")val isReturnable: Boolean,
-    @SerialName("is_exchangable")val isExchangable: Boolean
+    @SerializedName("id")val id: Long,
+    @SerializedName("badge")val badge: String,
+    @SerializedName("price")val price: PriceDto,
+    @SerializedName("provider_name")val providerName: String,
+    @SerializedName("company")val company:String,
+    @SerializedName("departure")val departure: DestinationDto,
+    @SerializedName("arrival")val arrival: DestinationDto,
+    @SerializedName("has_transfer")val hasTransfer: Boolean,
+    @SerializedName("has_visa_transfer")val hasVisaTransfer: Boolean,
+    @SerializedName("luggage")val luggage: LuggageDto,
+    @SerializedName("hand_luggage")val handLuggageDto: HandLuggageDto,
+    @SerializedName("is_returnable")val isReturnable: Boolean,
+    @SerializedName("is_exchangable")val isExchangable: Boolean
 
 )

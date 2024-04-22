@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.cardview.widget.CardView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:contentPadding="16dp"
+        android:backgroundTint="@color/basic_gray4">
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/popular_destination_rv"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

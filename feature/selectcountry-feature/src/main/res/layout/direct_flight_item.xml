@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="10dp"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:backgroundTint="@color/special_blue"
+        android:background="@drawable/direct_flight_item_shape"
+        app:layout_constraintStart_toStartOf="@id/container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        tools:text="Title"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        android:textSize="14sp"
+        android:textColor="@color/basic_white"
+        android:fontFamily="@font/sf_pro_display_medium"/>
+
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:maxLines="1"
+        android:textColor="@color/basic_white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="Title" />
+
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 300 Р"
+
+        android:textColor="@color/special_blue"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@id/arrow"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/arrow_to_the_detail_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <com.google.android.material.divider.MaterialDivider
+        app:layout_constraintTop_toBottomOf="@id/time"
+        android:layout_marginTop="10dp"
+        app:dividerColor="@color/basic_gray5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

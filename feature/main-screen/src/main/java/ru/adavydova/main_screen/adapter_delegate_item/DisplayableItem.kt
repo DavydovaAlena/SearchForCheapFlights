@@ -1,0 +1,3 @@
+package ru.adavydova.main_screen.adapter_delegate_item
+
+interface DisplayableItem

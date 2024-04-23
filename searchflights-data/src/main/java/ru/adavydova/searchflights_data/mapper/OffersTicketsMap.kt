@@ -1,7 +1,7 @@
-package ru.adavydova.flightsearch_data.mapper
+package ru.adavydova.searchflights_data.mapper
 
-import ru.adavydova.remote.models.Price
-import ru.adavydova.remote.models.OfferTicket
+import ru.adavydova.searchflights_data.models.Price
+import ru.adavydova.searchflights_data.models.OfferTicket
 import ru.adavydova.remote.models.TicketOfferDto
 
 fun TicketOfferDto.toTicketOffer() = OfferTicket(

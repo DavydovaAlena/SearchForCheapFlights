@@ -2,14 +2,14 @@ package ru.adavydova.searchflights_data.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import ru.adavydova.flightsearch_data.mapper.toOffer
+import ru.adavydova.searchflights_data.mapper.toOffer
 import ru.adavydova.flightsearch_data.mapper.toTicket
-import ru.adavydova.flightsearch_data.mapper.toTicketOffer
+import ru.adavydova.searchflights_data.mapper.toTicketOffer
 import ru.adavydova.flightsearch_data.utils.Result
 import ru.adavydova.remote.FlightSearchApi
-import ru.adavydova.remote.models.Offer
-import ru.adavydova.remote.models.Ticket
-import ru.adavydova.remote.models.OfferTicket
+import ru.adavydova.searchflights_data.models.Offer
+import ru.adavydova.searchflights_data.models.Ticket
+import ru.adavydova.searchflights_data.models.OfferTicket
 
 interface FlightSearchRepository {
     suspend fun getOffers(): Result<Flow<List<Offer>>>

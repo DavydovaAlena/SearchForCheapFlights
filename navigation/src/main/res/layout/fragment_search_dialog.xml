@@ -5,7 +5,7 @@
     android:id="@+id/fragment_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/basic_gray1"
+    android:background="@drawable/rounded_dialog"
     android:minHeight="744dp"
     android:orientation="vertical">
 
@@ -73,7 +73,10 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/sf_pro_display_semibold"
+                    android:inputType="textNoSuggestions"
+                    android:imeOptions="actionSearch"
                     android:hint="Куда - Турция"
+                    android:maxLines="1"
                     android:paddingLeft="8dp"
                     android:textColor="@color/basic_white"
                     android:textColorHint="@color/basic_gray6"

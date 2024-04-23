@@ -1,6 +1,6 @@
 package ru.adavydova.main_screen.adapter_delegate_item
 
-import ru.adavydova.remote.models.Offer
+import ru.adavydova.searchflights_data.models.Offer
 
 
 data class InputFieldsItem(

@@ -1,7 +1,4 @@
-package ru.adavydova.remote.models
-
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+package ru.adavydova.searchflights_data.models
 
 data class Ticket (
     val id: Long,

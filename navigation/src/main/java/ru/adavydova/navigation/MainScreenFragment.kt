@@ -21,42 +21,41 @@ import ru.adavydova.main_screen.MainScreenEvent
 import ru.adavydova.main_screen.MainScreenViewModel
 import ru.adavydova.main_screen.adapter_delegate_item.MainScreenAdapter
 import ru.adavydova.navigation.databinding.FragmentMainScreenBinding
-import ru.adavydova.ui_component.adapter_delegate.utils.Constant
+import ru.adavydova.navigation.utils.Constant
 
 
 class MainScreenFragment : Fragment() {
 
+    private val viewModel by hiltNavGraphViewModels<MainScreenViewModel>(R.id.mainScreenFragment)
 
     private var _binding: FragmentMainScreenBinding? = null;
     private val binding get() = _binding!!;
 
+    private var mainScreenAdapter: MainScreenAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    private val viewModel by hiltNavGraphViewModels<MainScreenViewModel>(R.id.mainScreenFragment)
-    private var mainScreenAdapter: MainScreenAdapter? = null
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         setupAdapter()
+        _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         binding.recyclerMain.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = mainScreenAdapter
             itemAnimator = DefaultItemAnimator()
         }
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         viewLifecycleOwner.lifecycleScope.launch {
+
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.cityFromState.collectLatest { cityFromState ->
-
                     if (cityFromState != null && viewModel.firstOpening.value) {
                         mainScreenAdapter?.items = viewModel.displayedItemsState.value
                         binding.recyclerMain.adapter?.notifyItemChanged(0)

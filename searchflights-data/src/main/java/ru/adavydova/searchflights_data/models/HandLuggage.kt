@@ -1,4 +1,4 @@
-package ru.adavydova.remote.models
+package ru.adavydova.searchflights_data.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

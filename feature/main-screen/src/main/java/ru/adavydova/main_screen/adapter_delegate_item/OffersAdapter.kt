@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
-import ru.adavydova.remote.models.Offer
+import ru.adavydova.searchflights_data.models.Offer
 import ru.adavydova.ui_component.adapter_delegate.utils.priceFormatter
 import ru.adavydova.ui_component.databinding.OfferItemBinding
 

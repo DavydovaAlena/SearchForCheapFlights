@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
-import ru.adavydova.remote.models.OfferTicket
+import ru.adavydova.searchflights_data.models.OfferTicket
 import ru.adavydova.ui_component.databinding.PopularDestinationItemBinding
 
 class PopularDestinationAdapter(

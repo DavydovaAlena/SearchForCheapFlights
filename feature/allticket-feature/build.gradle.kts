@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ru.adavydova.navigation"
+    namespace = "ru.adavydova.allticket_feature"
     compileSdk = 34
 
     defaultConfig {
@@ -30,9 +30,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
@@ -40,22 +37,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.legacy.support.v4)
-    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation (libs.androidx.navigation.fragment.ktx)
-    implementation (libs.androidx.navigation.ui.ktx)
-    implementation (libs.androidx.hilt.navigation.fragment)
-    implementation(libs.coroutines.android)
-    implementation(libs.coroutines.core)
-    implementation (libs.adapterdelegates4)
-    implementation (libs.adapterdelegates4.kotlin.dsl.viewbinding)
-    implementation(project(":feature:main-screen"))
-    implementation(project(":feature:search-feature"))
-    implementation(project(":feature:selectcountry-feature"))
-    implementation(project(":searchflights-data"))
-    implementation(project(":ui-component"))
-
 }

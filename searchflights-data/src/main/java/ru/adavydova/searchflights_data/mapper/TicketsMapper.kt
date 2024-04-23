@@ -1,10 +1,10 @@
 package ru.adavydova.flightsearch_data.mapper
 
-import ru.adavydova.remote.models.Destination
-import ru.adavydova.remote.models.HandLuggage
-import ru.adavydova.remote.models.Luggage
-import ru.adavydova.remote.models.Price
-import ru.adavydova.remote.models.Ticket
+import ru.adavydova.searchflights_data.models.Destination
+import ru.adavydova.searchflights_data.models.HandLuggage
+import ru.adavydova.searchflights_data.models.Luggage
+import ru.adavydova.searchflights_data.models.Price
+import ru.adavydova.searchflights_data.models.Ticket
 import ru.adavydova.remote.models.TicketDto
 
 fun TicketDto.toTicket() = Ticket(

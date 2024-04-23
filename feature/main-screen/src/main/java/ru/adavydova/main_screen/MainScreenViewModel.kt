@@ -14,10 +14,9 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import ru.adavydova.flightsearch_data.utils.Result
-import ru.adavydova.main_screen.adapter_delegate_item.DisplayableItem
 import ru.adavydova.main_screen.adapter_delegate_item.InputFieldsItem
 import ru.adavydova.main_screen.adapter_delegate_item.OfferItem
-import ru.adavydova.remote.models.Offer
+import ru.adavydova.searchflights_data.models.Offer
 import ru.adavydova.searchflights_data.usecase.SearchFlightsUseCases
 import javax.inject.Inject
 
@@ -30,12 +29,20 @@ class MainScreenViewModel @Inject constructor(
     private val _cityFromState = MutableStateFlow<String?>(null)
     val cityFromState = _cityFromState.asStateFlow()
 
+    init {
+        viewModelScope.launch(Dispatchers.Default) {
+            onEvent(MainScreenEvent.GetOffers)
+            useCases.readTheSavedCountry().collectLatest{
+                _cityFromState.value = it
+            }
+        }
+    }
+
     private val _firstOpening = MutableStateFlow<Boolean>(true)
     val firstOpening = _firstOpening.asStateFlow()
 
     private val _offers = MutableStateFlow<List<Offer>>(emptyList())
     val offers = _offers.asStateFlow()
-
 
     val displayedItemsState = combine(offers, cityFromState) { offers, cityFromState ->
         listOf(
@@ -52,14 +59,7 @@ class MainScreenViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
 
-    init {
-        viewModelScope.launch(Dispatchers.Default) {
-            onEvent(MainScreenEvent.GetOffers)
-            useCases.readTheSavedCountry().collect{
-                _cityFromState.value = it
-            }
-        }
-    }
+
 
     fun onEvent(event: MainScreenEvent) {
         when (event) {
@@ -70,7 +70,7 @@ class MainScreenViewModel @Inject constructor(
             }
 
             MainScreenEvent.ChangeStateCityFromInitial -> {
-                _firstOpening.update { false }
+                _firstOpening.value  = false
             }
 
             MainScreenEvent.GetOffers -> {
@@ -82,7 +82,7 @@ class MainScreenViewModel @Inject constructor(
 
                         is Result.Success -> {
                             result.data.collectLatest { offers ->
-                                _offers.update { offers }
+                                _offers.value =  offers
                             }
                         }
                     }

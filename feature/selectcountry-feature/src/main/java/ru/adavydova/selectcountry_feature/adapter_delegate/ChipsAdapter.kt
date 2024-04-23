@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.adavydova.selectcountry_feature.databinding.ChipsItemBinding
 
-class ChipsAdapter(private val items: List<Chip>): RecyclerView.Adapter<ChipsAdapter.ChipsViewHolder>() {
+class ChipsAdapter(
+    private val items: List<Chip>,
+    private val openCalendar: ()->Unit): RecyclerView.Adapter<ChipsAdapter.ChipsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChipsViewHolder {
         val binding = ChipsItemBinding.inflate(LayoutInflater.from(parent.context), parent ,false)
         return ChipsViewHolder(binding)
@@ -16,7 +18,12 @@ class ChipsAdapter(private val items: List<Chip>): RecyclerView.Adapter<ChipsAda
 
     override fun onBindViewHolder(holder: ChipsViewHolder, position: Int) {
         val item = items[position]
-        holder.bind(item)
+        val openCalendarEventForElement = when(position){
+            0 -> openCalendar
+            1 -> openCalendar
+            else -> null
+        }
+        holder.bind(item, openCalendarEventForElement)
     }
 
     override fun getItemCount(): Int {
@@ -24,7 +31,8 @@ class ChipsAdapter(private val items: List<Chip>): RecyclerView.Adapter<ChipsAda
     }
 
     inner class ChipsViewHolder(private val binding: ChipsItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(item: Chip){
+        fun bind(item: Chip, openCalendar: (()->Unit)?){
+
             when(item.icon){
                 null -> binding.icon.visibility = View.GONE
                 else -> binding.icon.setImageResource(item.icon)
@@ -34,6 +42,11 @@ class ChipsAdapter(private val items: List<Chip>): RecyclerView.Adapter<ChipsAda
                 else -> {
                     val text = "${item.title}, ${item.subTitle}"
                     binding.title.text = text
+                }
+            }
+            if (openCalendar != null){
+                binding.itemCard.setOnClickListener{
+                    openCalendar()
                 }
             }
         }

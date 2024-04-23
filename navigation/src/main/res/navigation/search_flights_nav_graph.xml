@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_searchDialogFragment_to_stubFragment"
             app:destination="@id/stubFragment" />
+        <action
+            android:id="@+id/action_searchDialogFragment_to_selectCountryFragment"
+            app:destination="@id/selectCountryFragment" />
     </dialog>
     <fragment
         android:id="@+id/stubFragment"
@@ -32,7 +35,16 @@
         android:id="@+id/selectCountryFragment"
         android:name="ru.adavydova.navigation.SelectCountryFragment"
         android:label="fragment_select_country"
-        tools:layout="@layout/fragment_select_country" />
+        tools:layout="@layout/fragment_select_country" >
+        <action
+            android:id="@+id/action_selectCountryFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/calendarFragment"
+        android:name="ru.adavydova.navigation.CalendarFragment"
+        android:label="fragment_calendar_dialog"
+        tools:layout="@layout/fragment_calendar_dialog" />
 
 
 </navigation>

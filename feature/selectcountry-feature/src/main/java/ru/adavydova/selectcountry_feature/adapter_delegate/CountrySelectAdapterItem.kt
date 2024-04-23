@@ -1,8 +1,7 @@
 package ru.adavydova.selectcountry_feature.adapter_delegate
 
 import androidx.annotation.DrawableRes
-import ru.adavydova.remote.models.OfferTicket
-import ru.adavydova.remote.models.Ticket
+import ru.adavydova.searchflights_data.models.OfferTicket
 
 interface CountrySelectAdapterItem
 
@@ -12,8 +11,8 @@ data class Chip(
     val subTitle: String? = null
 )
 data class InputFieldsItem(
-    val cityFrom: String,
-    val cityTo: String
+    val cityFrom: String?,
+    val cityTo: String?
 ): CountrySelectAdapterItem
 
 data class ChipsItem(

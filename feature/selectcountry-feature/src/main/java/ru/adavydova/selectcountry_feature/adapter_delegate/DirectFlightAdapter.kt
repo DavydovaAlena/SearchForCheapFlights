@@ -1,5 +1,7 @@
 package ru.adavydova.selectcountry_feature.adapter_delegate
 
+import android.graphics.BlendMode
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +42,7 @@ class DirectFlightAdapter(
             val date = item.timeRange.joinToString(separator = " ")
             binding.price.text = item.price.value.priceFormatter()
             binding.time.text = date
-            binding.icon.setStrokeColorResource(iconColor)
+            binding.icon.setCardBackgroundColor(iconColor)
             binding.title.text = item.title
 
             binding.container.setOnClickListener{

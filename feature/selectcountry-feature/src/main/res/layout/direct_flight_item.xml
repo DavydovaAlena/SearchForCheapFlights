@@ -7,12 +7,12 @@
     android:paddingTop="10dp"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.imageview.ShapeableImageView
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/icon"
+        app:cardCornerRadius="50dp"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:backgroundTint="@color/special_blue"
-        android:background="@drawable/direct_flight_item_shape"
         app:layout_constraintStart_toStartOf="@id/container"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(
-            statusBarStyle = SystemBarStyle.dark(Color.BLACK),
-            navigationBarStyle = SystemBarStyle.dark(Color.BLACK)
+//            statusBarStyle = SystemBarStyle.dark(Color.BLACK),
+//            navigationBarStyle = SystemBarStyle.dark(Color.BLACK)
 
         )
         setContentView(R.layout.activity_main)

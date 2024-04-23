@@ -1,7 +1,6 @@
 package ru.adavydova.navigation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +25,7 @@ import ru.adavydova.navigation.utils.Constant
 
 class MainScreenFragment : Fragment() {
 
-    private val viewModel by hiltNavGraphViewModels<MainScreenViewModel>(R.id.mainScreenFragment)
+    private val viewModel by hiltNavGraphViewModels<MainScreenViewModel>(R.id.main_nav_graph)
 
     private var _binding: FragmentMainScreenBinding? = null;
     private val binding get() = _binding!!;

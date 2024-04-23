@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.converter.scalars)
     implementation(libs.gson)
     implementation(libs.retrofit)
+    implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.okhttp3.loggin.interceptor)
     implementation(libs.converter.gson)
     implementation(libs.retrofit.adapters.result)

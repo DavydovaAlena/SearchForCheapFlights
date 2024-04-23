@@ -35,14 +35,15 @@ data class StraightRailsState(
     val offerTickets: List<OfferTicket> = emptyList(),
     val showAllStraightRails: Boolean = false
 )
+
 sealed class SelectCountryEvent {
     data object ShowAllStraightRails : SelectCountryEvent()
     class ChangeTheDepartureTime(val date: String) : SelectCountryEvent()
     class SubscribeToThePrice(val state: Boolean) : SelectCountryEvent()
     data object SwapCities : SelectCountryEvent()
     data object ClearCityToValue : SelectCountryEvent()
-    class ChangeCityToState(val cityTo: String?): SelectCountryEvent()
-    class ChangeCityFromState(val cityFrom: String?): SelectCountryEvent()
+    class ChangeCityToState(val cityTo: String?) : SelectCountryEvent()
+    class ChangeCityFromState(val cityFrom: String?) : SelectCountryEvent()
 }
 
 @HiltViewModel
@@ -62,7 +63,8 @@ class SelectCountryViewModel @Inject constructor(
 
                 is Result.Success -> {
                     result.data.collectLatest {
-                        _straightRailsState.value = _straightRailsState.value.copy(offerTickets = it)
+                        _straightRailsState.value =
+                            _straightRailsState.value.copy(offerTickets = it)
                     }
                 }
             }
@@ -93,7 +95,7 @@ class SelectCountryViewModel @Inject constructor(
         _chips,
         _subscribeToPriceState,
         _inputFieldsState
-    ) { straightRailsState, chips,  subscribeToPriceState, inputFieldsState ->
+    ) { straightRailsState, chips, subscribeToPriceState, inputFieldsState ->
 
         listOf(
             InputFieldsItem(
@@ -136,7 +138,8 @@ class SelectCountryViewModel @Inject constructor(
             }
 
             SelectCountryEvent.ShowAllStraightRails -> {
-                _straightRailsState.value = _straightRailsState.value.copy(showAllStraightRails = !_straightRailsState.value.showAllStraightRails)
+                _straightRailsState.value =
+                    _straightRailsState.value.copy(showAllStraightRails = !_straightRailsState.value.showAllStraightRails)
             }
 
             is SelectCountryEvent.SubscribeToThePrice -> {
@@ -155,6 +158,7 @@ class SelectCountryViewModel @Inject constructor(
                     cityFrom = event.cityFrom,
                 )
             }
+
             is SelectCountryEvent.ChangeCityToState -> {
                 _inputFieldsState.value = _inputFieldsState.value.copy(
                     cityTo = event.cityTo,

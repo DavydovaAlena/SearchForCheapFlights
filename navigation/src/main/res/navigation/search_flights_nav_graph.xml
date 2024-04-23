@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/search_flights_nav_graph"
-    app:startDestination="@id/mainScreenFragment">
+    app:startDestination="@id/main_nav_graph">
     <fragment
-        android:id="@+id/mainScreenFragment"
+        android:id="@+id/main_nav_graph"
         android:name="ru.adavydova.navigation.MainScreenFragment"
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" >
@@ -53,6 +53,26 @@
         android:name="ru.adavydova.navigation.AllTicketsFragment"
         android:label="fragment_all_tickets"
         tools:layout="@layout/fragment_all_tickets" />
+    <fragment
+        android:id="@+id/hotel_nav_graph"
+        android:name="ru.adavydova.navigation.HotelScreenFragment"
+        android:label="fragment_hotel_screen"
+        tools:layout="@layout/fragment_hotel_screen" />
+    <fragment
+        android:id="@+id/quickest_nav_graph"
+        android:name="ru.adavydova.navigation.QuickestScreenFragment"
+        android:label="fragment_quickest_screen"
+        tools:layout="@layout/fragment_quickest_screen" />
+    <fragment
+        android:id="@+id/subscriptions_nav_graph"
+        android:name="ru.adavydova.navigation.SubscriptionsScreenFragment"
+        android:label="fragment_subscriptions_screen"
+        tools:layout="@layout/fragment_subscriptions_screen" />
+    <fragment
+        android:id="@+id/profile_nav_graph"
+        android:name="ru.adavydova.navigation.ProfileScreenFragment"
+        android:label="fragment_profile_screen"
+        tools:layout="@layout/fragment_profile_screen" />
 
 
 </navigation>

@@ -2,7 +2,6 @@ package ru.adavydova.selectcountry_feature.adapter_delegate
 
 import android.text.TextWatcher
 import android.view.View
-import android.view.inputmethod.EditorInfo
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +20,7 @@ fun inputFieldsAdapterDelegate(
     goToBack: () -> Unit,
     updateCityFrom: (String?) -> Unit,
     updateCityTo: (String?) -> Unit,
+    swapCities:()-> Unit
 ) =
     adapterDelegateViewBinding<InputFieldsItem, CountrySelectAdapterItem, TextFieldsSelectCountryBlockBinding>(
         { layoutInflater, parent ->

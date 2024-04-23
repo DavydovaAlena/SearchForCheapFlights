@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":feature:main-screen"))
     implementation(project(":feature:search-feature"))
     implementation(project(":feature:selectcountry-feature"))
+    implementation(project(":feature:allticket-feature"))
     implementation(project(":searchflights-data"))
     implementation(project(":ui-component"))
 

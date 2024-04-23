@@ -123,8 +123,8 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
         findNavController().navigate(
             R.id.selectCountryFragment,
             bundleOf(
-                Constant.CITY_FROM_TO_SELECT_COUNTRY to fromTheCountry,
-                Constant.TO_THE_CITY_TO_SELECT_COUNTRY to cityTo
+                Constant.CITY_FROM to fromTheCountry,
+                Constant.CITY_TO to cityTo
             )
         )
     }

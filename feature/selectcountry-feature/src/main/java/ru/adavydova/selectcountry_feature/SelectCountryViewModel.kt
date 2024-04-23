@@ -47,7 +47,7 @@ sealed class SelectCountryEvent {
 
 @HiltViewModel
 class SelectCountryViewModel @Inject constructor(
-    useCases: SearchFlightsUseCases
+    private val useCases: SearchFlightsUseCases
 ) : ViewModel() {
 
     private val _straightRailsState = MutableStateFlow(StraightRailsState())

@@ -11,7 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="16dp"
-        app:contentPadding="16dp"
+        app:contentPaddingLeft="16dp"
+        app:contentPaddingRight="16dp"
+        app:contentPaddingTop="16dp"
+        app:contentPaddingBottom="8dp"
         android:backgroundTint="@color/basic_gray2">
 
         <LinearLayout

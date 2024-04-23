@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:paddingBottom="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/direct_flight_item_shape"
+        android:backgroundTint="@color/blue"
+        android:elevation="4dp"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:textColor="@color/basic_white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/price_item"
+        app:layout_constraintStart_toStartOf="@+id/card"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Самый удобный" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/basic_gray2"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/container" />
+
+    <TextView
+        android:id="@+id/price_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:textColor="@color/basic_white"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@id/badge"
+        tools:text="6 9000 Р" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:textColor="@color/basic_white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/airport1"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+        app:layout_constraintTop_toTopOf="@+id/shapeableImageView"
+        tools:text="17:45 - 21:20" />
+
+    <TextView
+        android:id="@+id/airport1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:elevation="2dp"
+        android:gravity="left"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:textColor="@color/basic_gray6"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+        app:layout_constraintTop_toBottomOf="@id/time"
+        tools:text="17:45" />
+
+    <TextView
+        android:id="@+id/airport2"
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:gravity="right"
+        android:textColor="@color/basic_gray6"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/time"
+        app:layout_constraintStart_toEndOf="@+id/airport1"
+        app:layout_constraintTop_toBottomOf="@+id/time"
+        tools:text="17:45" />
+
+    <TextView
+        android:id="@+id/hours_on_the_road"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:elevation="2dp"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:textColor="@color/basic_gray6"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/card"
+        app:layout_constraintStart_toEndOf="@+id/time"
+        app:layout_constraintTop_toTopOf="@+id/time"
+        tools:text="17:45 - 21:20" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/direct_flight_item_shape"
+        android:backgroundTint="@color/red"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card"
+        app:layout_constraintStart_toStartOf="@+id/price_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

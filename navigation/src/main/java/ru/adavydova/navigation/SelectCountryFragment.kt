@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.lifecycle.Lifecycle
@@ -35,23 +36,23 @@ class SelectCountryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (savedInstanceState == null){
+            val cityFrom = arguments?.getString(Constant.CITY_FROM)
+            viewModel.onEvent(SelectCountryEvent.ChangeCityFromState(cityFrom))
+            val cityTo = arguments?.getString(Constant.CITY_TO)
+            viewModel.onEvent(SelectCountryEvent.ChangeCityToState(cityTo))
+        }
         _binding = FragmentSelectCountryBinding.inflate(inflater, container, false)
+        setupAdapter()
+        binding.selectCountryRv.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            adapter = countrySelectAdapter
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setupAdapter()
-        val cityFrom = arguments?.getString(Constant.CITY_FROM_TO_SELECT_COUNTRY)
-        viewModel.onEvent(SelectCountryEvent.ChangeCityFromState(cityFrom))
-        val cityTo = arguments?.getString(Constant.TO_THE_CITY_TO_SELECT_COUNTRY)
-        viewModel.onEvent(SelectCountryEvent.ChangeCityToState(cityTo))
-
-        binding.selectCountryRv.apply {
-            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            adapter = countrySelectAdapter
-        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -77,7 +78,6 @@ class SelectCountryFragment : Fragment() {
                 }
             }
         }
-
 
         //updateChipsState
         viewLifecycleOwner.lifecycleScope.launch {
@@ -116,12 +116,22 @@ class SelectCountryFragment : Fragment() {
             goToTheBack = { findNavController().popBackStack() },
             showAllStraightRails = { viewModel.onEvent(SelectCountryEvent.ShowAllStraightRails) },
             selectStraightRailsItem = {},
-            viewAllTickets = {},
+            viewAllTickets = {navigateToTicketsAllFragment()},
             subscribeToThePrice = { viewModel.onEvent(SelectCountryEvent.SubscribeToThePrice(it)) },
             updateCityTo = { viewModel.onEvent(SelectCountryEvent.ChangeCityToState(it)) },
             updateCityFrom = { viewModel.onEvent(SelectCountryEvent.ChangeCityFromState(it)) },
             openCalendar = { findNavController().navigate(R.id.action_selectCountryFragment_to_calendarFragment) },
+            swapCities = {viewModel.onEvent(SelectCountryEvent.SwapCities)}
+        )
+    }
 
+    private fun navigateToTicketsAllFragment(){
+
+        findNavController().navigate(R.id.action_selectCountryFragment_to_allTicketsFragment,
+            bundleOf(Constant.CITY_TO to viewModel.inputFieldsState.value.cityTo,
+                Constant.CITY_FROM to viewModel.inputFieldsState.value.cityFrom,
+                Constant.CALENDAR_DATE to viewModel.chips.value[1].title
+            )
         )
     }
 

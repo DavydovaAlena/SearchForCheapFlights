@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 
 data class HandLuggage (
     val hasHandLuggage: Boolean,
-    val size: String
+    val size: String?
 )

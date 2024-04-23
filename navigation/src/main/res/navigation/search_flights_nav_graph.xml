@@ -39,12 +39,20 @@
         <action
             android:id="@+id/action_selectCountryFragment_to_calendarFragment"
             app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_selectCountryFragment_to_allTicketsFragment"
+            app:destination="@id/allTicketsFragment" />
     </fragment>
     <dialog
         android:id="@+id/calendarFragment"
         android:name="ru.adavydova.navigation.CalendarFragment"
         android:label="fragment_calendar_dialog"
         tools:layout="@layout/fragment_calendar_dialog" />
+    <fragment
+        android:id="@+id/allTicketsFragment"
+        android:name="ru.adavydova.navigation.AllTicketsFragment"
+        android:label="fragment_all_tickets"
+        tools:layout="@layout/fragment_all_tickets" />
 
 
 </navigation>

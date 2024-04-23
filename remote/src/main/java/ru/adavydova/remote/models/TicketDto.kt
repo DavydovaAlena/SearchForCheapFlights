@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class TicketDto (
     @SerializedName("id")val id: Long,
-    @SerializedName("badge")val badge: String,
+    @SerializedName("badge")val badge: String?,
     @SerializedName("price")val price: PriceDto,
     @SerializedName("provider_name")val providerName: String,
     @SerializedName("company")val company:String,

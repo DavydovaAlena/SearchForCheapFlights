@@ -27,7 +27,7 @@ fun TicketDto.toTicket() = Ticket(
     hasVisaTransfer = hasVisaTransfer,
     luggage = Luggage(
         hasLuggage = luggage.hasLuggage,
-        price = Price(luggage.price.value)
+        price = luggage.price?.let { Price(it.value)}
     ),
     handLuggage = HandLuggage(
         hasHandLuggage = handLuggageDto.hasHandLuggage,

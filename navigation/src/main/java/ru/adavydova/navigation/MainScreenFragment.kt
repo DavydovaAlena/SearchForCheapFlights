@@ -1,6 +1,7 @@
 package ru.adavydova.navigation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,6 +54,14 @@ class MainScreenFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
 
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.displayedItemsState.collectLatest {
+                        mainScreenAdapter?.items = it
+                    }
+                }
+            }
+
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.cityFromState.collectLatest { cityFromState ->
                     if (cityFromState != null && viewModel.firstOpening.value) {
@@ -64,10 +73,12 @@ class MainScreenFragment : Fragment() {
             }
         }
 
+
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.displayedItemsState.collectLatest {
-                    mainScreenAdapter?.items = it
+                viewModel.offers.collectLatest {
+                    mainScreenAdapter?.items = viewModel.displayedItemsState.value
                     binding.recyclerMain.adapter?.notifyItemChanged(1)
                 }
             }

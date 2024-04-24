@@ -37,15 +37,15 @@ class AllTicketsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (savedInstanceState == null){
-            arguments?.apply {
-               cityFrom = getString(Constant.CITY_FROM)
-               cityTo = getString(Constant.CITY_TO)
-               date = getString(Constant.CALENDAR_DATE)
-            }
+
+        arguments?.apply {
+            cityFrom = getString(Constant.CITY_FROM)
+            cityTo = getString(Constant.CITY_TO)
+            date = getString(Constant.CALENDAR_DATE)
         }
+
         _binding = FragmentAllTicketsBinding.inflate(inflater, container, false)
-        val cityValue ="$cityFrom-$cityTo"
+        val cityValue = "$cityFrom-$cityTo"
         binding.city.text = cityValue
         parseDate()?.let {
             val newDate = it + ", 1 пассажир"
@@ -54,13 +54,13 @@ class AllTicketsFragment : Fragment() {
         return binding.root
     }
 
-    private fun parseDate(): String?{
+    private fun parseDate(): String? {
         val oldFormat = SimpleDateFormat("dd LLL, E", Locale("ru"))
         val newFormat = SimpleDateFormat("dd LLLL", Locale("ru"))
-        return  date?.let {
+        return date?.let {
             val newDate = oldFormat.parse(it)
             newDate?.let { it1 -> newFormat.format(it1) }
-        }?: date
+        } ?: date
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -69,17 +69,18 @@ class AllTicketsFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.tickets.collectLatest {
-                    if (it.isNotEmpty()){
+                    if (it.isNotEmpty()) {
                         binding.recyclerView.apply {
                             this.adapter = TicketAdapter(it)
-                            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                            layoutManager =
+                                LinearLayoutManager(context, RecyclerView.VERTICAL, false)
                         }
                     }
                 }
             }
         }
 
-        binding.arrow.setOnClickListener{
+        binding.arrow.setOnClickListener {
             findNavController().popBackStack()
         }
 

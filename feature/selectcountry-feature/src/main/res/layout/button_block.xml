@@ -8,15 +8,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/show_all_button"
         android:textAllCaps="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/sf_pro_display_semibold"
         android:textSize="16sp"
-        android:backgroundTint="@color/special_blue"
-        android:background="@drawable/button_show_all_places_shape"
+        android:background="@drawable/shape_all_ticket_button"
         android:text="Посмотреть все билеты"
         android:textColor="@color/basic_white"/>
 

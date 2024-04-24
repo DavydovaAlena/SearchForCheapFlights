@@ -100,9 +100,11 @@ class SearchDialogFragment : BottomSheetDialogFragment() {
 
             anywhereBtn.setOnClickListener {
                 val countrySize = viewModel.offersTickets.value.lastIndex
-                val index = (0..countrySize).random()
-                val countryTo = viewModel.offersTickets.value[index].title
-                goToTheSelectItem(countryTo)
+                if (countrySize != -1){
+                    val index = (0..countrySize).random()
+                    val countryTo = viewModel.offersTickets.value[index].title
+                    goToTheSelectItem(countryTo)
+                }
             }
 
             this.toTheCountry.setOnEditorActionListener { _, actionId, _ ->

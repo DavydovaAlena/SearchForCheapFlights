@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import ru.adavydova.searchflights_data.models.OfferTicket
+import ru.adavydova.selectcountry_feature.R
 import ru.adavydova.selectcountry_feature.databinding.ButtonBlockBinding
 import ru.adavydova.selectcountry_feature.databinding.ChipsBlockBinding
 import ru.adavydova.selectcountry_feature.databinding.DirectFlightsBlockBinding

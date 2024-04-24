@@ -1,6 +1,5 @@
 package ru.adavydova.selectcountry_feature.adapter_delegate
 
-import android.text.TextWatcher
 import android.view.View
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -8,20 +7,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import ru.adavydova.searchflights_data.models.OfferTicket
-import ru.adavydova.selectcountry_feature.R
 import ru.adavydova.selectcountry_feature.databinding.ButtonBlockBinding
 import ru.adavydova.selectcountry_feature.databinding.ChipsBlockBinding
 import ru.adavydova.selectcountry_feature.databinding.DirectFlightsBlockBinding
 import ru.adavydova.selectcountry_feature.databinding.TextFieldsSelectCountryBlockBinding
 
 
-
-
 fun inputFieldsAdapterDelegate(
     goToBack: () -> Unit,
     updateCityFrom: (String?) -> Unit,
     updateCityTo: (String?) -> Unit,
-    swapCities:()-> Unit
+    swapCities: () -> Unit
 ) =
     adapterDelegateViewBinding<InputFieldsItem, CountrySelectAdapterItem, TextFieldsSelectCountryBlockBinding>(
         { layoutInflater, parent ->
@@ -84,15 +80,9 @@ fun directFlightsAdapterDelegate(
                 false -> DirectFlightAdapter(item.items.subList(0, 2), clickToItem)
             }
             when (item.showAllState) {
-                true -> {
-                    binding.showAllButton.visibility = View.GONE
-                }
-
-                false -> {
-                    binding.showAllButton.visibility = View.VISIBLE
-                }
+                true -> binding.showAllButton.visibility = View.GONE
+                false -> binding.showAllButton.visibility = View.VISIBLE
             }
-
             binding.popularDestinationRv.apply {
                 layoutManager = LinearLayoutManager(itemView.context, RecyclerView.VERTICAL, false)
                 this.adapter = adapter

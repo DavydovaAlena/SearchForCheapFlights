@@ -50,9 +50,9 @@ class TicketAdapter(
             val hoursOnTheRoad = item.departure.date.getDiffBetweenTwoDate(item.arrival.date) + "ч. в пути"
             val transfer = when(item.hasTransfer){
                 true -> ""
-                false -> "Без пересадок"
+                false -> "/Без пересадок"
             }
-            val result = "$hoursOnTheRoad / $transfer"
+            val result = "$hoursOnTheRoad $transfer"
             binding.hoursOnTheRoad.text = result
         }
 

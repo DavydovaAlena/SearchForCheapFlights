@@ -1,11 +1,19 @@
 package ru.adavydova.selectcountry_feature.adapter_delegate
 
+import android.content.res.ColorStateList
+import android.content.res.Resources
 import android.graphics.BlendMode
+import android.graphics.Color
 import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
+import org.xmlpull.v1.XmlPullParser
 import ru.adavydova.searchflights_data.models.OfferTicket
+import ru.adavydova.selectcountry_feature.R
 import ru.adavydova.selectcountry_feature.databinding.DirectFlightItemBinding
 import ru.adavydova.ui_component.adapter_delegate.utils.priceFormatter
 
@@ -22,10 +30,10 @@ class DirectFlightAdapter(
     override fun onBindViewHolder(holder: DirectFlightViewHolder, position: Int) {
         val item = items[position]
         val iconColor = when (position) {
-            0 -> ru.adavydova.ui_component.R.color.red
-            1 -> ru.adavydova.ui_component.R.color.blue
-            2 -> ru.adavydova.ui_component.R.color.basic_white
-            else -> ru.adavydova.ui_component.R.color.basic_white
+            0 -> Color.RED
+            1 -> Color.BLUE
+            2 -> Color.WHITE
+            else -> Color.WHITE
         }
         holder.bind(item, iconColor)
     }

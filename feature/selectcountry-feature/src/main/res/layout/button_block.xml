@@ -8,7 +8,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
+        android:padding="16dp"
         android:id="@+id/show_all_button"
         android:textAllCaps="false"
         android:layout_width="match_parent"
